@@ -1,0 +1,42 @@
+basically it is also similar to factory method pattern with an added clone method which allows us to customize cloning behavior
+
+In the Prototype Pattern, the key idea is to create new objects by copying (cloning) existing ones instead of instantiating them directly with new.
+
+Using an Abstract Class and Subclass:
+When you define an abstract class with some base properties or behaviors, and a subclass extends it and calls super() in its constructor, the subclass inherits those properties.
+
+You can then augment or override those inherited values with subclass-specific ones — effectively customizing the clone or instance.
+
+How This Relates to the Prototype Pattern:
+If your abstract class includes a clone() method, and each subclass provides its own implementation (often calling super.clone() or cloning the base properties manually), then:
+
+You're allowing each subclass to define how it wants to be copied.
+
+After cloning, you can tweak or merge values in the new object to customize it.
+
+This aligns with Prototype Pattern goals: reuse structure via inheritance and flexibly clone/extend objects.
+
+
+
+The Prototype Pattern does resemble the Factory Method Pattern in that:
+
+Both abstract away the instantiation logic from the client.
+
+Both aim to decouple the client from specific classes.
+
+But here's the key difference:
+
+🔄 Prototype Pattern:
+Creates objects by cloning an existing instance, not by calling new.
+
+Often includes a clone() method, allowing for customized copy logic.
+
+Useful when object creation is costly or when you want to make copies of a configured object.
+
+🏭 Factory Method Pattern:
+Uses a method (often abstract) to instantiate an object using new (or a constructor).
+
+Subclasses decide which class to instantiate, not how to copy an existing one.
+
+So yes, Prototype Pattern = Factory-style creation + cloning customization.
+It's about copying a configured template, rather than creating a fresh instance.

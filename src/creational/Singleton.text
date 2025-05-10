@@ -1,0 +1,66 @@
+Summary:
+1. Only a single instance should be available as a global point of access.
+Ensure that a class has just a single instance.
+
+It has 3 steps,
+1. Create a Private Constructor
+2. Create a private STATIC variable
+3. Create a public STATIC method to get the instance
+
+
+Applicability
+ Use the Singleton pattern when a class in your program should have just a single instance available to all clients;
+ for example, a single database object shared by different parts of the program.
+
+ The Singleton pattern disables all other means of creating objects of a class except for the special creation
+ method. This method either creates a new object or returns an existing one if it has already been created.
+
+ Use the Singleton pattern when you need stricter control over global variables.
+
+ Unlike global variables, the Singleton pattern guarantees that there’s just one
+  instance of a class. Nothing, except for the Singleton class itself, can replace the cached instance.
+
+
+  Why Singleton Pattern Can Lead to SRP Violation Later
+  Even though this class is currently only managing instance creation, it blends two conceptual responsibilities:
+
+  Being a singleton (controlling instantiation and access),
+
+  Being a domain/service class (even though it's empty now).
+
+  If you later add business methods, you’ll have a class that:
+
+  Manages its lifecycle (singleton logic),
+
+  Handles business functionality (e.g., service methods).
+
+  Now it has two reasons to change, violating SRP.
+
+
+   Singleton Pattern Tends to "Encourage" SRP Violation Over Time
+   Developers often add utility or service methods directly into singleton classes for convenience.
+
+   The class starts as an object lifecycle manager and becomes a god object (doing everything).
+
+   This causes tight coupling and hidden dependencies across the codebase.
+
+
+   *** But, it doesn't violate SRP by default. Any class can be made to follow SRP or to violate SRP.
+   Well, SRP should be renamed as DRP (Developers responsibility principle)... Jawkes a Part.
+
+
+
+
+   But Here's Why Singleton Often Gets Called Out:
+   Singletons are global by design.
+   Because they offer global access, developers often dump unrelated functionality into them for convenience.
+
+   They couple creation with behavior.
+   When one class is responsible for both instantiating itself and doing actual work, it’s more tempting to mix responsibilities.
+
+   The pattern invites tight coupling.
+   Other parts of the app directly depend on the singleton, making it harder to decouple and test.
+
+
+
+

@@ -1,4 +1,4 @@
-package creational.model;
+package creational.model.factoryandabstractfactory;
 
 public class Sugarcane {
     private String cropType;

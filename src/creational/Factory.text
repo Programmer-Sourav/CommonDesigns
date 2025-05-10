@@ -24,10 +24,7 @@ Promoting loose coupling.
 
 Creating objects based on logic or configuration.
 **/
-
-
-/**
-
+/******
 Abstract Factory pattern is a container that holds similar/related types of objects.
 
 

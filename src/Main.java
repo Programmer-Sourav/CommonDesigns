@@ -1,4 +1,8 @@
 import creational.model.*;
+import creational.model.factoryandabstractfactory.*;
+import creational.model.prototypepattern.SubclassRice;
+import creational.model.singletondesignpattern.DummyApplicationClass;
+import creational.model.singletondesignpattern.SomeOtherSingletonClass;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -57,6 +61,25 @@ public class Main {
 
         Rice rice3 = riceEntity.getProduct(Rice.class);
         System.out.println("Rice Type: " + rice3.getRiceType());
+
+        /***Singleton class **/
+
+        DummyApplicationClass anInstance = DummyApplicationClass.getInstanceOfTheClass();
+        anInstance.someUsefulMethod();
+        System.out.println("Getting other class instance "+anInstance.someMethod());
+        SomeOtherSingletonClass someInstance = SomeOtherSingletonClass.getSomeOtherSingletonInstance();
+        //someInstance.someInfo();
+        System.out.print("Here we go again...");
+        //anInstance.someMethod().someInfo();
+        SomeService someServiceSingleton = SomeServiceSingleton.getSomeServiceInstance();
+        System.out.print("Some Service Singleton...");
+        someServiceSingleton.someInfo();
+
+
+        //concrete class
+        SubclassRice subclassRice = new SubclassRice();
+        System.out.print("SubclassRice "+subclassRice.clone());
+        subclassRice.showFullDetails();
 
     }
 }

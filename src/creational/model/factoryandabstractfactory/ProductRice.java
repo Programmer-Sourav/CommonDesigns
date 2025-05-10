@@ -1,4 +1,4 @@
-package creational.model;
+package creational.model.factoryandabstractfactory;
 
 public class ProductRice extends EntityCrop implements  Crop{
 
